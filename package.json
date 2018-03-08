@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "description": "ECMAScript compiler for pado.js",
   "main": "index.js",
+  "bin": {
+    "padoc": "bin/padoc.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./bin/padoc.js"
   },
   "repository": {
     "type": "git",
