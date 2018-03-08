@@ -4,7 +4,7 @@
   "description": "ECMAScript compiler for pado.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/padowave/padoc"
+    "url": "https://github.com/sepalang/padoc"
   },
   "main": "index.js",
   "bin": {
@@ -13,16 +13,12 @@
   "scripts": {
     "test": "node ./bin/padoc.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/padowave/padoc.git"
-  },
   "author": "AHN HO JUNG",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/padowave/padoc/issues"
+    "url": "https://github.com/sepalang/padoc/issues"
   },
-  "homepage": "https://github.com/padowave/padoc#readme",
+  "homepage": "https://github.com/sepalang/padoc#readme",
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
