@@ -2,6 +2,10 @@
   "name": "padoc",
   "version": "0.1.0",
   "description": "ECMAScript compiler for pado.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/padowave/padoc"
+  },
   "main": "index.js",
   "bin": {
     "padoc": "bin/padoc.js"
