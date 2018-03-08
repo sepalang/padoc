@@ -24,6 +24,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.2",
     "rollup": "^0.56.3",
