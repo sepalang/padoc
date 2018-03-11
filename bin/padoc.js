@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 const path = require("path")
 const argv = {
-  signal:"compile",
-  from:"es6",
-  args:[]
+  signal: "compile",
+  from  : "es6",
+  args  : []
 }
 
-let castCommand = null;
-process.argv.forEach((value, index) => {
+let castCommand = null
+process.argv.forEach((value, index)=>{
   if(index == 1){
     argv.root = path.resolve(value,"../../../") 
   }
@@ -18,19 +18,19 @@ process.argv.forEach((value, index) => {
   
   if(index > 2){
     if(!castCommand && value.indexOf("-") === 0){
-      switch(value){
-        case "-s": case "--signal":
-          castCommand = "signal"
-          break
-        case "-o": case "--out":
-          castCommand = "out"
-          break
-        case "-m": case "--module":
-          castCommand = "module"
-          break
-        default
-          console.warn(`unknown command ${value}`)
-          break
+      switch (value){
+      case "-s": case "--signal":
+        castCommand = "signal"
+        break
+      case "-o": case "--out":
+        castCommand = "out"
+        break
+      case "-m": case "--module":
+        castCommand = "module"
+        break
+      default:
+        console.warn(`unknown command ${value}`)
+        break
       }
     } else {
       if(castCommand){
@@ -41,6 +41,6 @@ process.argv.forEach((value, index) => {
       }
     }
   }
-});
+})
 
 console.log("padoc command!\n",argv)
