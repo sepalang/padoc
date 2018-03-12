@@ -13,6 +13,7 @@
   "scripts": {
     "clean:sample": "rimraf sample/dist/*",
     "test:compile": "node ./bin/padoc.js sample/src sample/dist",
+    "test:compile:umd": "node ./bin/padoc.js sample/src sample/dist -m umd",
     "test": "npm run test:compile",
     "lint": "eslint bin",
     "lint:fix": "eslint bin --fix"

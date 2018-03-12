@@ -29,6 +29,7 @@ const babelCommands = []
 babelCommands.push(argv.input)
 
 //ouput
+babelCommands.push('--out-dir')
 babelCommands.push(argv.output)
 
 //plugins
@@ -36,17 +37,12 @@ babelCommands.push('--plugins')
 babelCommands.push(`transform-es2015-modules-${argv.module}`)
 
 
-const spawn = require('child_process').spawn
-const babel = spawn('babel', [
-  argv.input, 
-  '--out-dir',argv.output,
-  '--plugins','transform-es2015-modules-commonjs'
-])
+console.log("padoc compile start",babelCommands.join(" "));
 
-babel.stdout.on('data',(data)=>console.log(data))
-babel.stderr.on('data',(data)=>console.log(data))
+const spawn = require('child_process').spawn
+const babel = spawn('babel', babelCommands)
+babel.stdout.on('data',(data)=>console.log(data.toString()))
+babel.stderr.on('data',(data)=>console.log(data.toString()))
 babel.on('close', (code)=>{
   console.log(`padoc close :: ${code}`)
 })
-
-console.log("padoc command!\n",argv)
