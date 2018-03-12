@@ -27,7 +27,7 @@ if(!argv.output) throw new Error("Output must be defined.")
 
 let outputMode = "single"
 let babelCommands = []
-let globs;
+let globs
 
 //input
 try {
@@ -48,47 +48,47 @@ try {
     }
   }
   
-} catch(e) {
+} catch (e) {
   console.error(`Input path is invalid :: ${argv.input} \n${e}`)
-  process.exit(1);
+  process.exit(1)
 }
 
 //input
 babelCommands.push(argv.input)
 
 //ouput
-switch(outputMode){
-  case "single":
-    babelCommands.push('--out-file')
-    babelCommands.push(argv.output)
-    break;
-  case "multiple":
-    //ouput
-    babelCommands.push('--out-dir')
-    babelCommands.push(argv.output)
-    break;
-  default:
-    console.error(`Unknown output ${outputMode}`);
-    process.exit(1);
+switch (outputMode){
+case "single":
+  babelCommands.push('--out-file')
+  babelCommands.push(argv.output)
+  break
+case "multiple":
+  //ouput
+  babelCommands.push('--out-dir')
+  babelCommands.push(argv.output)
+  break
+default:
+  console.error(`Unknown output ${outputMode}`)
+  process.exit(1)
 }
 
 //plugins
 babelCommands.push('--plugins')
-switch(argv.module){
-  case "amd": case "umd": case "commonjs":
-    babelCommands.push(`transform-es2015-modules-${argv.module}`)
-    break;
-  case "cjs":
-    babelCommands.push(`transform-es2015-modules-commonjs`)
-    break;
-  default:
-    console.error(`Unknown out module ${outputMode}`);
-    process.exit(1);
+switch (argv.module){
+case "amd": case "umd": case "commonjs":
+  babelCommands.push(`transform-es2015-modules-${argv.module}`)
+  break
+case "cjs":
+  babelCommands.push(`transform-es2015-modules-commonjs`)
+  break
+default:
+  console.error(`Unknown out module ${outputMode}`)
+  process.exit(1)
 }
 
 
 
-console.log(`Padoc compile start!`);
+console.log(`Padoc compile start!`)
 
 const spawn = require('child_process').spawn
 const babel = spawn('babel', babelCommands)
@@ -96,6 +96,6 @@ babel.stdout.on('data',(data)=>console.log(data.toString()))
 babel.stderr.on('data',(data)=>console.log(data.toString()))
 babel.on('close', (code)=>{
   if(code === 0){
-    console.log(`Padoc compile success !`);
+    console.log(`Padoc compile success !`)
   }
 })
