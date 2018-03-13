@@ -1,101 +1,89 @@
 #!/usr/bin/env node
 const fs   = require('fs')
 const glob = require('glob')
+const executor = require('../preset/executor')
+const esCompile = executor.esCompile
+
 const argvProps = require('minimist')(process.argv.slice(2))
 const argv = {
-  signal: "compile",
-  module: "commonjs",
+  signal: null,
+  module: 'commonjs',
   input : null,
   output: null,
 }
 
-argv.input  = argvProps['_'][0]
-argv.output = argvProps['_'][1]
-
-let signalProp = argvProps['s'] || argvProps['signal']
-if(signalProp){
-  argv.signal = signalProp
+// setting : input output signal
+if(argvProps['pack']){
+  //pack mode
+  argv.input  = argvProps['pack']
+  argv.output = argvProps['_'][0]
+  argv.signal = "pack"
+} else {
+  //compile mode
+  argv.input  = argvProps['_'][0]
+  argv.output = argvProps['_'][1]
+  argv.signal = "compile"
 }
 
-let moduleProp = argvProps['m'] || argvProps['module']
-if(moduleProp){
-  argv.module = moduleProp
-}
 
 if(!argv.input)  throw new Error("Input must be defined.")
 if(!argv.output) throw new Error("Output must be defined.")
-
-let outputMode = "single"
-let babelCommands = []
-let globs
-
-//input
-try {
-  globs = glob.sync(argv.input)
+if(!argv.signal) throw new Error("This command does not know what to do...")
   
-  if(globs.length === 0){
-    throw new Error("Invalid path")
+
+// setting : (output) module
+argv.module = argvProps['m'] || argvProps['module'] || argv.module
+  
+// Is input directory or folder?
+let typeofInput = null
+
+try {
+  //
+  let result = {
+    is: undefined
   }
   
-  if(globs.length === 1){
+  let globs = glob.sync(argv.input)
+  
+  if(globs.length){
     let inputStat = fs.statSync(globs[0])
     if(inputStat.isDirectory()){
-      outputMode = "multiple"
-    } else if(inputStat.isFile()){
-      //ok
-    } else {
-      throw new Error("Not supported path")
+      result.is = "directory"
+    } 
+    if(inputStat.isFile()){
+      result.is = "file"
+    }
+    if(result.is){
+      typeofInput = result;
     }
   }
   
 } catch (e) {
-  console.error(`Input path is invalid :: ${argv.input} \n${e}`)
+  console.error(`Error occurred while parsing the input. \n${e}`)
   process.exit(1)
 }
 
-//input
-babelCommands.push(argv.input)
-
-//ouput
-switch (outputMode){
-case "single":
-  babelCommands.push('--out-file')
-  babelCommands.push(argv.output)
-  break
-case "multiple":
-  //ouput
-  babelCommands.push('--out-dir')
-  babelCommands.push(argv.output)
-  break
-default:
-  console.error(`Unknown output ${outputMode}`)
+if(!typeofInput) {
+  console.error(`Input is invalid (not found) :: ${argv.input} \n${e}`)
   process.exit(1)
+} else {
+  argv['typeofInput'] = typeofInput;
 }
 
-//plugins
-babelCommands.push('--plugins')
-switch (argv.module){
-case "amd": case "umd": case "commonjs":
-  babelCommands.push(`transform-es2015-modules-${argv.module}`)
-  break
-case "cjs":
-  babelCommands.push(`transform-es2015-modules-commonjs`)
-  break
-default:
-  console.error(`Unknown out module ${outputMode}`)
-  process.exit(1)
-}
-
-
-
-console.log(`Padoc compile start!`)
-
-const spawn = require('child_process').spawn
-const babel = spawn('babel', babelCommands)
-babel.stdout.on('data',(data)=>console.log(data.toString()))
-babel.stderr.on('data',(data)=>console.log(data.toString()))
-babel.on('close', (code)=>{
-  if(code === 0){
+switch (argv.signal){
+case 'compile':
+  console.log(`Padoc compile start!`)
+  esCompile(argv)
+  .then(e=>{
     console.log(`Padoc compile success !`)
-  }
-})
+    process.exit(0)
+  })
+  .catch(e=>{
+    console.log(`Opps compile fail !`,e)
+    process.exit(1)
+  })
+  break
+case 'pack':
+  console.log("Not ready")
+  break
+}
