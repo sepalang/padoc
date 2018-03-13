@@ -54,7 +54,7 @@ try {
       result.is = "file"
     }
     if(result.is){
-      typeofInput = result;
+      typeofInput = result
     }
   }
   
@@ -64,10 +64,10 @@ try {
 }
 
 if(!typeofInput) {
-  console.error(`Input is invalid (not found) :: ${argv.input} \n${e}`)
+  console.error(`Input is invalid (not found) :: ${argv.input}`)
   process.exit(1)
 } else {
-  argv['typeofInput'] = typeofInput;
+  argv['typeofInput'] = typeofInput
 }
 
 switch (argv.signal){

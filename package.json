@@ -16,6 +16,8 @@
     "test:compile": "node ./bin/padoc.js sample/src sample/dist",
     "test:compile:umd": "node ./bin/padoc.js sample/src sample/dist -m umd",
     "test:compile:umd:file": "node ./bin/padoc.js sample/src/index.js sample/dist/all.js -m umd",
+    "test:compile:pack:amd": "node ./bin/padoc.js --pack sample/src/index.js sample/dist/all.js -m umd",
+    "test:compile:pack:iife": "node ./bin/padoc.js --pack sample/src/index.js sample/dist/all.js -m umd",
     "test": "npm run test:compile",
     "lint": "eslint bin",
     "lint:fix": "eslint bin --fix"
