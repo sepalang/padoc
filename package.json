@@ -36,6 +36,7 @@
     "glob": "^7.1.2",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
+    "package.root": "^1.0.3",
     "rimraf": "^2.6.2",
     "rollup": "^0.56.3",
     "rollup-plugin-commonjs": "^8.3.0",

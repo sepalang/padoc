@@ -1,3 +1,15 @@
+const path = require('path')
+const packageRoot = require('package.root')
+
+const rootName = packageRoot.name
+const rootPath = packageRoot.path
+const rootResolve = relativePath=>path.resolve(rootPath,relativePath)
+
+const package = module.exports.package = {
+  name:rootName,
+  path:rootPath,
+  resolve:rootResolve
+}
 
 module.exports.esCompile = function({ typeofInput, input, output, module }){
   return new Promise((resolve,reject)=>{
