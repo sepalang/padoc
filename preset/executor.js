@@ -1,5 +1,8 @@
 const path = require('path')
 const packageRoot = require('package.root')
+const fs = require('fs')
+const mkdirp = require('mkdirp')
+const rimraf = require('rimraf')
 
 const rootName = packageRoot.name
 const rootPath = packageRoot.path
@@ -60,4 +63,25 @@ module.exports.esCompile = function({ typeofInput, input, output, module }){
       }
     })
   })
+}
+
+const isExsistDirectory = function(path){
+  try {
+    return fs.statSync(package.resolve(path)).isDirectory()
+  } catch (e){
+    return false
+  }
+}
+
+const mkdir = function(path){
+  if(!isExsistDirectory(path)){
+    mkdirp.sync(package.resolve(path))
+  }
+  return true
+}
+
+const rmrf = function(path){
+  if(isExsistDirectory(path)){
+    rimraf.sync(package.resolve(path))
+  }
 }
