@@ -1,21 +1,12 @@
-const path = require('path')
-const packageRoot = require('package.root')
-const fs = require('fs')
-const mkdirp = require('mkdirp')
-const rimraf = require('rimraf')
+const fileUtil = require("./file.util")
+const mkdir = fileUtil.mkdir
+const rmrf = fileUtil.rmrf
 
-const rootName = packageRoot.name
-const rootPath = packageRoot.path
-const rootResolve = relativePath=>path.resolve(rootPath,relativePath)
-
-const package = module.exports.package = {
-  name:rootName,
-  path:rootPath,
-  resolve:rootResolve
-}
 
 module.exports.esCompile = function({ typeofInput, input, output, module }){
   return new Promise((resolve,reject)=>{
+    //ready config
+    
     let babelCommands = []
 
     //input
@@ -63,25 +54,4 @@ module.exports.esCompile = function({ typeofInput, input, output, module }){
       }
     })
   })
-}
-
-const isExsistDirectory = function(path){
-  try {
-    return fs.statSync(package.resolve(path)).isDirectory()
-  } catch (e){
-    return false
-  }
-}
-
-const mkdir = function(path){
-  if(!isExsistDirectory(path)){
-    mkdirp.sync(package.resolve(path))
-  }
-  return true
-}
-
-const rmrf = function(path){
-  if(isExsistDirectory(path)){
-    rimraf.sync(package.resolve(path))
-  }
 }
