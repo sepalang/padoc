@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs   = require('fs')
 const glob = require('glob')
-const executor = require('../preset/compile.util')
+const executor = require('../lib/compileUtil')
 const esCompile = executor.esCompile
 
 const argvProps = require('minimist')(process.argv.slice(2))
