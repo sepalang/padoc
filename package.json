@@ -13,6 +13,7 @@
   "scripts": {
     "clean:sample": "rimraf sample/dist/*",
     "clean": "npm run clean:sample",
+    "dist": "node sample/dist",
     "test:compile": "node ./bin/padoc.js sample/src sample/dist",
     "test:compile:umd": "node ./bin/padoc.js sample/src sample/dist -m umd",
     "test:compile:umd:file": "node ./bin/padoc.js sample/src/index.js sample/dist/all.js -m umd",

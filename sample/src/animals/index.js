@@ -1,5 +1,5 @@
 import cat from './cat'
-import dob from './dog'
+import dog from './dog'
 
 const animals = { cat, dog }
 
