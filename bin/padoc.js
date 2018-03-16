@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 const fs   = require('fs')
 const glob = require('glob')
-const executor = require('../lib/compileUtil')
-const esCompile = executor.esCompile
+const { esCompile, packCompile } = require('../lib/compileUtil')
+
 
 const argvProps = require('minimist')(process.argv.slice(2))
 const argv = {
@@ -75,15 +75,24 @@ case 'compile':
   console.log(`Padoc compile start!`)
   esCompile(argv)
   .then(e=>{
-    console.log(`Padoc compile success !`)
+    console.log(`Padoc compile success!`)
     process.exit(0)
   })
   .catch(e=>{
-    console.log(`Opps compile fail !`,e)
+    console.log(`Opps compile fail!`,e)
     process.exit(1)
   })
   break
 case 'pack':
-  console.log("Not ready")
+  console.log(`Padoc --pack compile start!`)
+  packCompile(argv)
+  .then(e=>{
+    console.log(`Padoc --pack compile success!`)
+    process.exit(0)
+  })
+  .catch(e=>{
+    console.log(`Padoc --pack compile fail!`)
+    process.exit(1)
+  })
   break
 }
