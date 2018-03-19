@@ -8,6 +8,7 @@ const argvProps = require('minimist')(process.argv.slice(2))
 const argv = {
   signal: null,
   module: 'commonjs',
+  name: 'module',
   input : null,
   output: null,
 }
@@ -33,6 +34,7 @@ if(!argv.signal) throw new Error("This command does not know what to do...")
 
 // setting : (output) module
 argv.module = argvProps['m'] || argvProps['module'] || argv.module
+argv.name = argvProps['n'] || argvProps['name'] || argv.name
   
 // Is input directory or folder?
 let typeofInput = null
@@ -91,7 +93,7 @@ case 'pack':
     process.exit(0)
   })
   .catch(e=>{
-    console.log(`Padoc --pack compile fail!`)
+    console.log(`Padoc --pack compile fail!`,e)
     process.exit(1)
   })
   break
