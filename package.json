@@ -1,6 +1,6 @@
 {
   "name": "padoc",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "ECMAScript compiler for pado.js",
   "repository": {
     "type": "git",
@@ -13,13 +13,12 @@
   "scripts": {
     "clean:sample": "rimraf sample/dist/*",
     "clean": "npm run clean:sample",
-    "dist": "node sample/dist",
-    "test:compile": "node ./bin/padoc.js sample/src sample/dist",
-    "test:compile:umd": "node ./bin/padoc.js sample/src sample/dist -m umd",
-    "test:compile:umd:file": "node ./bin/padoc.js sample/src/index.js sample/dist/all.js -m umd",
-    "test:compile:pack:umd": "node ./bin/padoc.js --pack sample/src/index.js sample/dist/all.js -m umd",
-    "test:compile:pack:amd": "node ./bin/padoc.js --pack sample/src/index.js sample/dist/all.js -m amd",
-    "test:compile:pack:iife": "node ./bin/padoc.js --pack sample/src/index.js sample/dist/all.js -m iife",
+    "test:compile": "my padoc sample/src sample/dist",
+    "test:compile:umd": "my padoc sample/src sample/dist -m umd",
+    "test:compile:umd:file": "my padoc sample/src/index.js sample/dist/all.js -m umd",
+    "test:compile:pack:umd": "my padoc --pack sample/src/index.js sample/dist/all.js -m umd",
+    "test:compile:pack:amd": "my padoc --pack sample/src/index.js sample/dist/all.js -m amd",
+    "test:compile:pack:iife": "my padoc --pack sample/src/index.js sample/dist/all.js -m iife",
     "test": "npm run test:compile",
     "lint": "eslint bin",
     "lint:fix": "eslint bin --fix"
@@ -51,6 +50,7 @@
     "rollup-plugin-node-resolve": "^3.3.0"
   },
   "devDependencies": {
+    "mybin": "sepalang/mybin",
     "babel-eslint": "^8.2.2",
     "eslint": "^4.19.0"
   }
