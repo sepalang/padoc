@@ -18,15 +18,15 @@ npm i sepalang/padoc
 
 ## Usage
 
-### es6 compile
+### ES6 each module compile
 - Supported object spread
 ```
 padoc src dist -m umd
 ```
 > It will be start recursive compile
 
-### one file compile
+### One file compile
 ```
 padoc --pack src/index.js dist/onefile.js -m umd
 ```
-> It will be other files with dependencies will be stored in a single file. (import, require)
+> It will be other files with dependencies will be stored in a single file. (By import or require)
