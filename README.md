@@ -4,8 +4,29 @@ It is a tool for extracting compilation and distribution source with a simple co
 
 ## TODO
   - [x] padoc src dist -m [commonjs,amd,umd\]\(0.1.0)
-  - [x] padoc -pack src/pack.js dist/pack.js -m [commonjs,amd,umd,iife] -n iifename (0.3.0)
-  - [ ] es6 sorucemap(0.4.1)
-  - [ ] pack sourcemap(0.4.2)
-  - [ ] padoc -test [test folder]
-  - [ ] padoc -lint [glob path]
+  - [x] padoc --pack src/pack.js dist/pack.js -m [commonjs,amd,umd,iife] -n iifename (0.3.0)
+  - [ ] ES6 sorucemap(0.4.1)
+  - [ ] Pack sourcemap(0.4.2)
+  - [ ] Delete root babelrc (0.4.5)
+  - [ ] padoc --test [test folder]\(0.5.0)
+  - [ ] padoc --lint [glob path]\(0.6.0)
+  
+## Install
+```
+npm i sepalang/padoc
+```
+
+## Usage
+
+### es6 compile
+- Supported object spread
+```
+padoc src dist -m umd
+```
+> It will be start recursive compile
+
+### one file compile
+```
+padoc --pack src/index.js dist/onefile.js -m umd
+```
+> It will be other files with dependencies will be stored in a single file. (import, require)
