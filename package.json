@@ -1,6 +1,6 @@
 {
   "name": "padoc",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "ECMAScript compiler for pado.js",
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/sepalang/padoc#readme",
   "dependencies": {
+    "myself": "sepalang/myself",
     "@babel/cli": "^7.0.0-beta.42",
     "@babel/core": "^7.0.0-beta.42",
     "@babel/plugin-external-helpers": "^7.0.0-beta.42",
@@ -40,9 +41,7 @@
     "@babel/polyfill": "^7.0.0-beta.42",
     "@babel/preset-env": "^7.0.0-beta.42",
     "glob": "^7.1.2",
-    "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
-    "package.root": "^1.0.3",
     "rimraf": "^2.6.2",
     "rollup": "^0.57.1",
     "rollup-plugin-babel": "^4.0.0-beta.2",
@@ -50,7 +49,6 @@
     "rollup-plugin-node-resolve": "^3.3.0"
   },
   "devDependencies": {
-    "mybin": "sepalang/mybin",
     "babel-eslint": "^8.2.2",
     "eslint": "^4.19.0"
   }

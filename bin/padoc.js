@@ -2,9 +2,9 @@
 const fs   = require('fs')
 const glob = require('glob')
 const { esCompile, packCompile } = require('../lib/compileUtil')
+const myself = require('myself')
 
-
-const argvProps = require('minimist')(process.argv.slice(2))
+const argvProps = myself.args
 const argv = {
   signal: null,
   module: 'commonjs',
