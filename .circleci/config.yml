@@ -5,7 +5,7 @@ defaults: &defaults
 
 version: 2
 jobs:
-  checkout:
+  install:
     <<: *defaults
     steps:
       - checkout
@@ -96,19 +96,19 @@ workflows:
   version: 2
   install-and-compile:
     jobs:
-      - checkout
+      - install
       - compile-default:
           requires:
-            - checkout
+            - install
       - compile-umd:
           requires:
-            - checkout
+            - install
       - pack-umd:
           requires:
-            - checkout
+            - install
       - pack-amd:
           requires:
-            - checkout
+            - install
       - pack-iife:
           requires:
-            - checkout
+            - install
