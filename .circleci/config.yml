@@ -23,8 +23,11 @@ jobs:
       - attach_workspace:
           at: ~/project
       - run:
-          name: run script
+          name: npm run - test
           command: npm run test:compile
+      - run:
+          name: npm run result
+          command: tree sample
   
   compile-umd:
     <<: *defaults
@@ -32,8 +35,11 @@ jobs:
       - attach_workspace:
           at: ~/project
       - run:
-          name: run script
+          name: npm run - test
           command: npm run test:compile:umd
+      - run:
+          name: npm run result
+          command: tree sample
   
   pack-umd:
     <<: *defaults
@@ -41,8 +47,11 @@ jobs:
       - attach_workspace:
           at: ~/project
       - run:
-          name: run script
+          name: npm run - test
           command: npm run test:compile:pack:umd
+      - run:
+          name: npm run result
+          command: tree sample
   
   pack-amd:
     <<: *defaults
@@ -50,8 +59,11 @@ jobs:
       - attach_workspace:
           at: ~/project
       - run:
-          name: run script
+          name: npm run - test
           command: npm run test:compile:pack:amd
+      - run:
+          name: npm run result
+          command: tree sample
   
   pack-iife:
     <<: *defaults
@@ -59,8 +71,11 @@ jobs:
       - attach_workspace:
           at: ~/project
       - run:
-          name: run script
+          name: npm run - test
           command: npm run test:compile:pack:iife
+      - run:
+          name: npm run result
+          command: tree sample
 
 workflows:
   version: 2
