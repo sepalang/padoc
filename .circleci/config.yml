@@ -1,0 +1,84 @@
+defaults: &defaults
+  working_directory: ~/project/padoc
+  docker:
+    - image: circleci/node:8.10-browsers
+
+version: 2
+jobs:
+  checkout:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: npm module
+          command: npm install
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - padoc
+  
+  compile-default:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: run script
+          command: npm run test:compile
+  
+  compile-umd:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: run script
+          command: npm run test:compile:umd
+  
+  pack-umd:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: run script
+          command: npm run test:compile:pack:umd
+  
+  pack-amd:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: run script
+          command: npm run test:compile:pack:amd
+  
+  pack-iife:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: run script
+          command: npm runtest:compile:pack:iife
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - checkout
+      - compile-default:
+          jobs:
+            - checkout
+      - compile-umd:
+          jobs:
+            - checkout
+      - pack-umd:
+          jobs:
+            - checkout
+      - pack-amd:
+          jobs:
+            - checkout
+      - pack-iife:
+          jobs:
+            - checkout
