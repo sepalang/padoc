@@ -68,17 +68,17 @@ workflows:
     jobs:
       - checkout
       - compile-default:
-          jobs:
+          requires:
             - checkout
       - compile-umd:
-          jobs:
+          requires:
             - checkout
       - pack-umd:
-          jobs:
+          requires:
             - checkout
       - pack-amd:
-          jobs:
+          requires:
             - checkout
       - pack-iife:
-          jobs:
+          requires:
             - checkout
