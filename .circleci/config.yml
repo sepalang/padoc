@@ -60,7 +60,7 @@ jobs:
           at: ~/project
       - run:
           name: run script
-          command: npm runtest:compile:pack:iife
+          command: npm run test:compile:pack:iife
 
 workflows:
   version: 2
