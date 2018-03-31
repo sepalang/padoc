@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/project/padoc
   docker:
-    - image: circleci/node:8.10-browsers
+    - image: labeldock/ci-nvm-lts:1
 
 version: 2
 jobs:
@@ -26,9 +26,6 @@ jobs:
           name: npm run - test
           command: npm run test:compile
       - run:
-          name: Install tree
-          command: sudo apt install tree
-      - run:
           name: npm run result
           command: tree sample
   
@@ -40,9 +37,6 @@ jobs:
       - run:
           name: npm run - test
           command: npm run test:compile:umd
-      - run:
-          name: Install tree
-          command: sudo apt install tree
       - run:
           name: npm run result
           command: tree sample
@@ -56,9 +50,6 @@ jobs:
           name: npm run - test
           command: npm run test:compile:pack:umd
       - run:
-          name: Install tree
-          command: sudo apt install tree
-      - run:
           name: npm run result
           command: tree sample
   
@@ -71,9 +62,6 @@ jobs:
           name: npm run - test
           command: npm run test:compile:pack:amd
       - run:
-          name: Install tree
-          command: sudo apt install tree
-      - run:
           name: npm run result
           command: tree sample
   
@@ -85,9 +73,6 @@ jobs:
       - run:
           name: npm run - test
           command: npm run test:compile:pack:iife
-      - run:
-          name: Install tree
-          command: sudo apt install tree
       - run:
           name: npm run result
           command: tree sample
