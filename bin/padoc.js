@@ -7,7 +7,7 @@ const myself = require('myself')
 const argvProps = myself.args
 const argv = {
   signal: null,
-  module: 'commonjs',
+  module: 'umd',
   name: 'module',
   input : null,
   output: null,

@@ -15,9 +15,13 @@
     "clean": "npm run clean:sample",
     "test:compile": "my padoc sample/src sample/dist",
     "test:compile:umd": "my padoc sample/src sample/dist -m umd",
+    "test:compile:cjs": "my padoc sample/src sample/dist -m cjs",
+    "test:compile:amd": "my padoc sample/src sample/dist -m amd",
     "test:compile:pack:umd": "my padoc --pack sample/src/index.js sample/dist/all.js -m umd",
+    "test:compile:pack:cjs": "my padoc --pack sample/src/index.js sample/dist/all.js -m cjs",
     "test:compile:pack:amd": "my padoc --pack sample/src/index.js sample/dist/all.js -m amd",
     "test:compile:pack:iife": "my padoc --pack sample/src/index.js sample/dist/all.js -m iife",
+    "test:compile:pack:iife:name": "my padoc --pack sample/src/index.js sample/dist/all.js -m iife -n animals",
     "test": "npm run test:compile",
     "lint": "eslint bin",
     "lint:fix": "eslint bin --fix"

@@ -5,7 +5,7 @@ defaults: &defaults
 
 version: 2
 jobs:
-  install:
+  checkout:
     <<: *defaults
     steps:
       - checkout
@@ -23,77 +23,137 @@ jobs:
       - attach_workspace:
           at: ~/project
       - run:
-          name: npm run - test
+          name: COMPILE
           command: npm run test:compile
       - run:
-          name: npm run result
+          name: Result tree
           command: tree sample
-  
+
   compile-umd:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/project
       - run:
-          name: npm run - test
+          name: COMPILE
           command: npm run test:compile:umd
       - run:
-          name: npm run result
+          name: Result tree
           command: tree sample
-  
+
+  compile-cjs:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: COMPILE
+          command: npm run test:compile:cjs
+      - run:
+          name: Result tree
+          command: tree sample
+
+  compile-amd:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: COMPILE
+          command: npm run test:compile:amd
+      - run:
+          name: Result tree
+          command: tree sample
+
   pack-umd:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/project
       - run:
-          name: npm run - test
+          name: COMPILE
           command: npm run test:compile:pack:umd
       - run:
-          name: npm run result
+          name: Result tree
           command: tree sample
-  
+
+  pack-cjs:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: COMPILE
+          command: npm run test:compile:pack:cjs
+      - run:
+          name: Result tree
+          command: tree sample
+
   pack-amd:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/project
       - run:
-          name: npm run - test
+          name: COMPILE
           command: npm run test:compile:pack:amd
       - run:
-          name: npm run result
+          name: Result tree
           command: tree sample
-  
+
   pack-iife:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/project
       - run:
-          name: npm run - test
+          name: COMPILE
           command: npm run test:compile:pack:iife
       - run:
-          name: npm run result
+          name: Result tree
+          command: tree sample
+
+  pack-iife-name:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: COMPILE
+          command: npm run test:compile:pack:iife:name
+      - run:
+          name: Result tree
           command: tree sample
 
 workflows:
   version: 2
   install-and-compile:
     jobs:
-      - install
+      - checkout
       - compile-default:
           requires:
-            - install
+            - checkout
       - compile-umd:
           requires:
-            - install
+            - checkout
+      - compile-cjs:
+          requires:
+            - checkout
+      - compile-amd:
+          requires:
+            - checkout
       - pack-umd:
           requires:
-            - install
+            - checkout
+      - pack-cjs:
+          requires:
+            - checkout
       - pack-amd:
           requires:
-            - install
+            - checkout
       - pack-iife:
           requires:
-            - install
+            - checkout
+      - pack-iife-name:
+          requires:
+            - checkout
