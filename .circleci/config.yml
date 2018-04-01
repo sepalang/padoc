@@ -17,7 +17,7 @@ jobs:
           paths:
             - padoc
   
-  compile-default:
+  compile:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -127,10 +127,10 @@ jobs:
 
 workflows:
   version: 2
-  install-and-compile:
+  checkout-and-compile:
     jobs:
       - checkout
-      - compile-default:
+      - compile:
           requires:
             - checkout
       - compile-umd:

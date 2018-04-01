@@ -1,5 +1,7 @@
 [![CircleCI](https://circleci.com/gh/sepalang/padoc/tree/master.svg?style=shield)](https://circleci.com/gh/sepalang/padoc/tree/master)
 
+[![CircleCI](https://circleci.com/gh/sepalang/padoc/tree/master.svg?style=shield)](https://circleci.com/gh/sepalang/padoc/tree/master)
+
 # PADOC
 It is a tool for extracting compilation and distribution source with a simple command library written in es6.
 
