@@ -1,11 +1,11 @@
 defaults: &defaults
   working_directory: ~/project/padoc
   docker:
-    - image: circleci/node:8.10-browsers
+    - image: labeldock/circleci-node:8.11
 
 version: 2
 jobs:
-  install:
+  build:
     <<: *defaults
     steps:
       - checkout
@@ -17,98 +17,162 @@ jobs:
           paths:
             - padoc
   
-  compile-default:
+  compile:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/project
       - run:
-          name: npm run - test
+          name: COMPILE
           command: npm run test:compile
       - run:
-          name: Install tree
-          command: sudo apt install tree
-      - run:
-          name: npm run result
+          name: Result tree
           command: tree sample
-  
+
   compile-umd:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/project
       - run:
-          name: npm run - test
-          command: npm run test:compile:umd
+          name: COMPILE
+          command: npm run test:compile -- -m umd
       - run:
-          name: Install tree
-          command: sudo apt install tree
-      - run:
-          name: npm run result
+          name: Result tree
           command: tree sample
-  
+
+  compile-cjs:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: COMPILE
+          command: npm run test:compile -- -m cjs
+      - run:
+          name: Result tree
+          command: tree sample
+
+  compile-amd:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: COMPILE
+          command: npm run test:compile -- -m amd
+      - run:
+          name: Result tree
+          command: tree sample
+
   pack-umd:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/project
       - run:
-          name: npm run - test
-          command: npm run test:compile:pack:umd
+          name: COMPILE
+          command: npm run test:pack -- -m umd
       - run:
-          name: Install tree
-          command: sudo apt install tree
-      - run:
-          name: npm run result
+          name: Result tree
           command: tree sample
-  
+
+  pack-cjs:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: COMPILE
+          command: npm run test:pack -- -m cjs
+      - run:
+          name: Result tree
+          command: tree sample
+
   pack-amd:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/project
       - run:
-          name: npm run - test
-          command: npm run test:compile:pack:amd
+          name: COMPILE
+          command: npm run test:pack -- -m amd
       - run:
-          name: Install tree
-          command: sudo apt install tree
-      - run:
-          name: npm run result
+          name: Result tree
           command: tree sample
-  
+
   pack-iife:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/project
       - run:
-          name: npm run - test
-          command: npm run test:compile:pack:iife
+          name: COMPILE
+          command: npm run test:pack -- -m iife
       - run:
-          name: Install tree
-          command: sudo apt install tree
-      - run:
-          name: npm run result
+          name: Result tree
           command: tree sample
+
+  pack-iife-name:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: COMPILE
+          command: npm run test:pack -- -m iife -n packs
+      - run:
+          name: Result tree
+          command: tree sample
+
+  result:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Badge success
+          command: cat package.json
 
 workflows:
   version: 2
-  install-and-compile:
+  task:
     jobs:
-      - install
-      - compile-default:
+      - build
+      - compile:
           requires:
-            - install
+            - build
       - compile-umd:
           requires:
-            - install
+            - build
+      - compile-cjs:
+          requires:
+            - build
+      - compile-amd:
+          requires:
+            - build
       - pack-umd:
           requires:
-            - install
+            - build
+      - pack-cjs:
+          requires:
+            - build
       - pack-amd:
           requires:
-            - install
+            - build
       - pack-iife:
           requires:
-            - install
+            - build
+      - pack-iife-name:
+          requires:
+            - build
+      - result:
+          requires:
+            - compile-umd
+            - compile-cjs
+            - compile-amd
+            - pack-umd
+            - pack-cjs
+            - pack-amd
+            - pack-iife
+            - pack-iife-name

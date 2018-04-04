@@ -13,12 +13,9 @@
   "scripts": {
     "clean:sample": "rimraf sample/dist/*",
     "clean": "npm run clean:sample",
-    "test:compile": "my padoc sample/src sample/dist",
-    "test:compile:umd": "my padoc sample/src sample/dist -m umd",
-    "test:compile:pack:umd": "my padoc --pack sample/src/index.js sample/dist/all.js -m umd",
-    "test:compile:pack:amd": "my padoc --pack sample/src/index.js sample/dist/all.js -m amd",
-    "test:compile:pack:iife": "my padoc --pack sample/src/index.js sample/dist/all.js -m iife",
     "test": "npm run test:compile",
+    "test:compile": "my padoc sample/src sample/dist",
+    "test:pack": "my padoc --pack  sample/src/index.js sample/dist/pack.js",
     "lint": "eslint bin",
     "lint:fix": "eslint bin --fix"
   },
