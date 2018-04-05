@@ -18,10 +18,11 @@ It is a tool for extracting compilation and distribution source with a simple co
 npm i sepalang/padoc
 ```
 
+
+
 ## Usage
 
 ### ES6 each module compile
-- Supported object spread
 ```
 padoc src dist -m umd
 ```
@@ -32,3 +33,38 @@ padoc src dist -m umd
 padoc --pack src/index.js dist/onefile.js -m umd
 ```
 > It will be other files with dependencies will be stored in a single file. (By import or require)
+
+## Default plugins
+### Object rest spread
+[link](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-object-rest-spread)
+```ts
+let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
+let n = { x, y, ...z };
+```
+
+### Do expression
+[link](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-do-expressions)
+```ts
+let a = do {
+  if(x > 10) {
+    'big';
+  } else {
+    'small';
+  }
+};
+```
+
+### Numeric separator
+[link](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-numeric-separator)
+```ts
+let budget = 1_000_000_000_000;
+```
+
+### Async generators
+[link](https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-async-generators#babelplugin-syntax-async-generators)
+```
+async function* agf() {
+  await 1;
+}
+```
+
