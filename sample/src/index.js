@@ -27,6 +27,4 @@ const all = {
   animals
 }
 
-
-
 export default all

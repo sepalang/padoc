@@ -2,6 +2,7 @@
 const fs   = require('fs')
 const glob = require('glob')
 const { esCompile, packCompile } = require('../lib/compileUtil')
+const { esExecute } = require('../lib/execUtil')
 const myself = require('myself')
 
 const argvProps = myself.args
@@ -19,6 +20,10 @@ if(argvProps['pack']){
   argv.input  = argvProps['pack']
   argv.output = argvProps['_'][0]
   argv.signal = "pack"
+} else if(argvProps['exec']){
+  //exec
+  argv.input  = argvProps['exec']
+  argv.signal = "exec"
 } else {
   //compile mode
   argv.input  = argvProps['_'][0]
@@ -26,10 +31,13 @@ if(argvProps['pack']){
   argv.signal = "compile"
 }
 
-
 if(!argv.input)  throw new Error("Input must be defined.")
-if(!argv.output) throw new Error("Output must be defined.")
-if(!argv.signal) throw new Error("This command does not know what to do...")
+if(!argv.output){
+  if(argv.signal !== "exec"){
+    throw new Error("Output must be defined.")
+  }
+} 
+
   
 
 // setting : (output) module
@@ -97,4 +105,11 @@ case 'pack':
     process.exit(1)
   })
   break
+case 'exec':
+  console.log(`Padoc --exec start!`)
+  esExecute(argv)
+  .catch(e=>{
+    console.log(`Padoc --exec fail!`,e)
+    process.exit(1)
+  })
 }
