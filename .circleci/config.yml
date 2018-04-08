@@ -1,9 +1,10 @@
+version: 2
+
 defaults: &defaults
   working_directory: ~/project/padoc
   docker:
     - image: labeldock/circleci-node:8.11
 
-version: 2
 jobs:
   build:
     <<: *defaults
