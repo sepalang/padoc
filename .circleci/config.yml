@@ -25,7 +25,7 @@ jobs:
           at: ~/project
       - run:
           name: COMPILE
-          command: npm run test:compile
+          command: npm run test:compile -s
       - run:
           name: Result tree
           command: tree sample
@@ -37,7 +37,7 @@ jobs:
           at: ~/project
       - run:
           name: COMPILE
-          command: npm run test:compile -- -m umd
+          command: npm run test:compile -- -m umd -s
       - run:
           name: Result tree
           command: tree sample
@@ -49,7 +49,7 @@ jobs:
           at: ~/project
       - run:
           name: COMPILE
-          command: npm run test:compile -- -m cjs
+          command: npm run test:compile -- -m cjs -s
       - run:
           name: Result tree
           command: tree sample
@@ -61,7 +61,7 @@ jobs:
           at: ~/project
       - run:
           name: COMPILE
-          command: npm run test:compile -- -m amd
+          command: npm run test:compile -- -m amd -s
       - run:
           name: Result tree
           command: tree sample
@@ -73,7 +73,7 @@ jobs:
           at: ~/project
       - run:
           name: COMPILE
-          command: npm run test:pack -- -m umd
+          command: npm run test:pack -- -m umd -s
       - run:
           name: Result tree
           command: tree sample
@@ -85,7 +85,7 @@ jobs:
           at: ~/project
       - run:
           name: COMPILE
-          command: npm run test:pack -- -m cjs
+          command: npm run test:pack -- -m cjs -s
       - run:
           name: Result tree
           command: tree sample
@@ -97,7 +97,7 @@ jobs:
           at: ~/project
       - run:
           name: COMPILE
-          command: npm run test:pack -- -m amd
+          command: npm run test:pack -- -m amd -s
       - run:
           name: Result tree
           command: tree sample
@@ -109,7 +109,7 @@ jobs:
           at: ~/project
       - run:
           name: COMPILE
-          command: npm run test:pack -- -m iife
+          command: npm run test:pack -- -m iife -s
       - run:
           name: Result tree
           command: tree sample
@@ -121,7 +121,7 @@ jobs:
           at: ~/project
       - run:
           name: COMPILE
-          command: npm run test:pack -- -m iife -n packs
+          command: npm run test:pack -- -m iife -n packs -s
       - run:
           name: Result tree
           command: tree sample

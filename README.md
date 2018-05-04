@@ -8,11 +8,9 @@ It is a tool for extracting compilation and distribution source with a simple co
   - [x] padoc src dist -m [commonjs,amd,umd\]\(0.1.0)
   - [x] padoc --pack src/pack.js dist/pack.js -m [commonjs,amd,umd,iife] -n iifename (0.3.0)
   - [x] padoc --exec src/pack.js  (0.5.0)
-  - [ ] ES6 sorucemap(0.6.x)
-  - [ ] Pack sourcemap(0.6.x)
-  - [ ] Delete root babelrc (0.7.x)
-  - [ ] padoc --test [test folder]\(0.8.x)
-  - [ ] padoc --lint [glob path]\(0.9.x)
+  - [x] ES6, Pack sorucemap(0.6.x) ( -s or --sourcemaps )
+  - [ ] padoc --test [test folder]\(0.7.x)
+  - [ ] Simple guide(0.8.x);
   
 ## Install
 ```
