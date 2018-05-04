@@ -12,6 +12,7 @@ const argv = {
   name: 'module',
   input : null,
   output: null,
+  sourcemaps: false
 }
 
 // setting : input output signal
@@ -43,6 +44,7 @@ if(!argv.output){
 // setting : (output) module
 argv.module = argvProps['m'] || argvProps['module'] || argv.module
 argv.name = argvProps['n'] || argvProps['name'] || argv.name
+argv.sourcemaps = argvProps['s'] || argvProps['sourcemaps'] || argv.sourcemaps
   
 // Is input directory or folder?
 let typeofInput = null
