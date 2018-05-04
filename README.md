@@ -4,19 +4,10 @@
 It is a tool for extracting compilation and distribution source with a simple command library written in es6.
 
 
-## TODO
-  - [x] padoc src dist -m [commonjs,amd,umd\]\(0.1.0)
-  - [x] padoc --pack src/pack.js dist/pack.js -m [commonjs,amd,umd,iife] -n iifename (0.3.0)
-  - [x] padoc --exec src/pack.js  (0.5.0)
-  - [x] ES6, Pack sorucemap(0.6.x) ( -s or --sourcemaps )
-  - [ ] padoc --test [test folder]\(0.7.x)
-  - [ ] Simple guide(0.8.x);
-  
 ## Install
 ```
 npm i sepalang/padoc
 ```
-
 
 
 ## Usage
@@ -27,11 +18,23 @@ padoc src dist -m umd
 ```
 > It will be start recursive compile
 
-### One file compile
+### Compiling to a single chunk
 ```
 padoc --pack src/index.js dist/onefile.js -m umd
 ```
 > It will be other files with dependencies will be stored in a single file. (By import or require)
+
+### Support sourcemaps
+```
+padoc src dist -s
+padoc --pack src/index.js dist/index.js -s
+```
+
+### Execute ES6 file
+```
+padoc --exec index.js
+```
+
 
 ## Default plugins
 ### Object rest spread
