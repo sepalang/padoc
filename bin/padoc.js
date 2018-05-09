@@ -3,7 +3,7 @@ const fs   = require('fs')
 const glob = require('glob')
 const { esCompile, packCompile } = require('../lib/compileUtil')
 const { esExecute, esTest } = require('../lib/execUtil')
-const myself = require('myself')
+const myself = require('@sepalang/myself')
 
 const argvProps = myself.args
 const argv = {
