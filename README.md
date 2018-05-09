@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/sepalang/padoc/tree/master.svg?style=shield)](https://circleci.com/gh/sepalang/padoc/tree/master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d09a4868f68041fb8a1647f740e535f3)](https://www.codacy.com/app/labeldock/padoc?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sepalang/padoc&amp;utm_campaign=Badge_Grade)
 
 # PADOC
 It is a tool for extracting compilation and distribution source with a simple command library written in es6.
