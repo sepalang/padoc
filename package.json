@@ -1,6 +1,6 @@
 {
   "name": "padoc",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "ECMAScript compiler for pado.js",
   "repository": {
     "type": "git",
