@@ -7,7 +7,7 @@ It is a tool for extracting compilation and distribution source with a simple co
 
 ## Install
 ```
-npm i sepalang/padoc
+npm i @sepalang/padoc
 ```
 
 
