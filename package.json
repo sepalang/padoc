@@ -1,5 +1,5 @@
 {
-  "name": "padoc",
+  "name": "@sepalang/padoc",
   "version": "0.7.0",
   "description": "ECMAScript compiler for pado.js",
   "repository": {
