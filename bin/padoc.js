@@ -7,11 +7,11 @@ const myself = require('@sepalang/myself')
 
 const argvProps = myself.args
 const argv = {
-  signal: null,
-  module: 'umd',
-  name: 'module',
-  input : null,
-  output: null,
+  signal    : null,
+  module    : 'umd',
+  name      : 'module',
+  input     : null,
+  output    : null,
   sourcemaps: false
 }
 

@@ -1,5 +1,5 @@
-const path = require('path');
-const { rootResolve } = require('../lib/packageUtil');
+const path = require('path')
+const { rootResolve } = require('../lib/packageUtil')
 
 module.exports = {
   "globals": {},
