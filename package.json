@@ -18,9 +18,7 @@
     "test:pack": "my padoc --pack sample/src/index.js sample/dist/pack.js",
     "test:exec": "my padoc --exec sample/src/read.js",
     "test:test": "my padoc --test sample/src",
-    "jest": "jest --config preset/jest.config.js",
-    "lint": "eslint bin",
-    "lint:fix": "eslint bin --fix"
+    "jest": "jest --config preset/jest.config.js"
   },
   "author": "AHN HO JUNG",
   "license": "MIT",
