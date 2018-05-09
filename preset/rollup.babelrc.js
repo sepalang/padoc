@@ -9,8 +9,8 @@ module.exports.default = {
             "safari >= 7"
           ]
         },
-        "modules": false,
-        "loose": true,
+        "modules"    : false,
+        "loose"      : true,
         "useBuiltIns": "usage"
       }
     ]
