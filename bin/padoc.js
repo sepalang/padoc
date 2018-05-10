@@ -89,10 +89,8 @@ if(!typeofInput) {
 
 switch (argv.signal){
 case 'compile':
-  console.log(`Padoc compile start!`)
   esCompile(argv)
   .then(e=>{
-    console.log(`Padoc compile success!`)
     process.exit(0)
   })
   .catch(e=>{
@@ -101,10 +99,8 @@ case 'compile':
   })
   break
 case 'pack':
-  console.log(`Padoc --pack compile start!`)
   packCompile(argv)
   .then(e=>{
-    console.log(`Padoc --pack compile success!`)
     process.exit(0)
   })
   .catch(e=>{
@@ -113,7 +109,6 @@ case 'pack':
   })
   break
 case 'exec':
-  console.log(`Padoc --exec start!`)
   esExecute(argv)
   .catch(e=>{
     console.log(`Padoc --exec fail!`,e)
@@ -121,7 +116,6 @@ case 'exec':
   })
   break
 case 'test':
-  console.log(`Padoc --test start!`)
   esTest(argv)
   .catch(e=>{
     console.log(`Padoc --test fail!`,e)
