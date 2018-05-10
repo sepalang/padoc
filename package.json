@@ -1,6 +1,6 @@
 {
   "name": "@sepalang/padoc",
-  "version": "0.7.6",
+  "version": "0.7.10",
   "description": "ECMAScript compiler for pado.js",
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
     "test:compile": "my padoc sample/src sample/dist",
     "test:pack": "my padoc --pack sample/src/index.js sample/dist/pack.js",
     "test:exec": "my padoc --exec sample/src/read.js",
+    "test:exec:i": "my padoc --exec sample/src/read.js -i",
     "test:test": "my padoc --test sample/src"
   },
   "author": "AHN HO JUNG",
@@ -40,7 +41,7 @@
     "@babel/plugin-transform-modules-umd": "^7.0.0-beta.46",
     "@babel/polyfill": "^7.0.0-beta.46",
     "@babel/preset-env": "^7.0.0-beta.46",
-    "@sepalang/myself": "^0.2.2",
+    "@sepalang/myself": "^0.2.3",
     "@sepalang/runner": "^0.5.2",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^22.4.3",
