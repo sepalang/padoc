@@ -16,12 +16,21 @@ npm i @sepalang/padoc
 ### ES6 each module compile
 ```
 padoc src dist -m umd
+
+# long
+padoc src dist --module umd
 ```
 > It will be start recursive compile
 
 ### Compiling to a single chunk
 ```
 padoc --pack src/index.js dist/onefile.js -m umd
+padoc --pack src/index.js dist/onefile.js -m iife -n iQuery
+
+# long
+padoc --pack src/index.js dist/onefile.js --module umd
+padoc --pack src/index.js dist/onefile.js --module iife --name iQuery
+
 ```
 > It will be other files with dependencies will be stored in a single file. (By import or require)
 
@@ -29,11 +38,24 @@ padoc --pack src/index.js dist/onefile.js -m umd
 ```
 padoc src dist -s
 padoc --pack src/index.js dist/index.js -s
+
+# long
+padoc src dist --sourcemaps
+padoc --pack src/index.js dist/index.js --sourcemaps
 ```
 
 ### Execute ES6 file
 ```
 padoc --exec index.js
+```
+
+### Execute and REPL
+Can access variables exports to a running file. Restrictions on babel-node may occur.
+```
+padoc --exec index.js -i
+
+# long
+padoc --exec index.js --interactive
 ```
 
 
