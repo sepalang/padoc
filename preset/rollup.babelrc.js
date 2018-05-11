@@ -10,8 +10,8 @@ module.exports.default = {
           ]
         },
         "modules"    : false,
-        "loose"      : true,
-        "useBuiltIns": "usage"
+        "loose"      : true
+        // "useBuiltIns": "usage"
       }
     ]
   ],
