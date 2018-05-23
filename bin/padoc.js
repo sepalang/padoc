@@ -116,6 +116,8 @@ case 'exec':
   })
   break
 case 'test':
+  argv.verbose = !!argvProps.verbose;
+  
   esTest(argv)
   .catch(e=>{
     console.log(`Padoc --test fail!`,e)
