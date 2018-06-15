@@ -43,8 +43,6 @@ if(!argv.output){
   }
 } 
 
-  
-
 // setting : (output) module
 argv.module = argvProps['m'] || argvProps['module'] || argv.module
 argv.name = argvProps['n'] || argvProps['name'] || argv.name

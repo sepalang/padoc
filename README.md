@@ -32,6 +32,12 @@ padoc --pack src/index.js dist/onefile.js --module umd
 padoc --pack src/index.js dist/onefile.js --module iife --name iQuery
 
 ```
+
+### no compile single chunk
+```
+padoc --pack src/index.js dist/onefile.js -m es
+```
+
 > It will be other files with dependencies will be stored in a single file. (By import or require)
 
 ### Support sourcemaps
