@@ -1,4 +1,4 @@
 .DS_Store
 /.cache
 node_modules
-sample/dist/**
+test/run-script/dist/**
