@@ -19,6 +19,7 @@
     "test:pack:es": "my padoc --pack test/run-script/src/reborn.js test/run-script/dist/reborn.js -m es",
     "test:pack:m": "my padoc --pack 'test/run-script/src/reborn.js' test/run-script/dist/reborn.js -m es",
     "test:packs": "my padoc --pack 'test/chunk/src/main-a.js test/chunk/src/main-b.js' test/chunk/dist -m es",
+    "test:packs:glob": "my padoc --pack 'test/chunk/src/main-*.js' test/chunk/dist -m es",
     "test:exec": "my padoc --exec test/run-script/src/read.js",
     "test:exec:i": "my padoc --exec test/run-script/src/read.js -i",
     "test:test": "my padoc --test test/run-script/src",

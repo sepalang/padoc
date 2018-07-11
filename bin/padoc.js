@@ -49,6 +49,20 @@ argv.name = argvProps['n'] || argvProps['name'] || argv.name
 argv.sourcemaps = argvProps['s'] || argvProps['sourcemaps'] || argv.sourcemaps
 argv.interactive = argvProps['i'] || argvProps['interactive'] || argv.interactive
 
+// detect glob pattern
+if(argv.input instanceof Array){
+  const globedInput = []
+  
+  argv.input.forEach(path=>{
+    if(path.indexOf("*") === -1){
+      return globedInput.push(path)
+    }
+    glob.sync(path).forEach(globPath=>globedInput.push(globPath))
+  })
+  
+  argv.input = globedInput
+}
+
 // Is input directory or folder?
 let argvInput   = argv.input instanceof Array ? argv.input[0] : argv.input
 let typeofInput = null
