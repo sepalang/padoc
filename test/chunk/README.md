@@ -1,0 +1,1 @@
+This test is come from rollup-starter-code-splitting
