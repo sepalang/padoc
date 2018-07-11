@@ -51,6 +51,11 @@ padoc src dist --sourcemaps
 padoc --pack src/index.js dist/index.js --sourcemaps
 ```
 
+### multiple chunk
+```
+padoc --packs 'src/foo.js src/bar.js' dist/dirname -m es
+```
+
 ### Execute ES6 file
 ```
 padoc --exec index.js

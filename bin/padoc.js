@@ -18,8 +18,8 @@ const argv = {
 
 // setting : input output signal
 if(argvProps['pack']){
-  //pack mode
-  argv.input  = argvProps['pack']
+  //packs mode
+  argv.input  = (argvProps['pack']).trim().split(/\s+/)
   argv.output = argvProps['_'][0]
   argv.signal = "pack"
 } else if(argvProps['exec']){
@@ -50,15 +50,15 @@ argv.sourcemaps = argvProps['s'] || argvProps['sourcemaps'] || argv.sourcemaps
 argv.interactive = argvProps['i'] || argvProps['interactive'] || argv.interactive
 
 // Is input directory or folder?
+let argvInput   = argv.input instanceof Array ? argv.input[0] : argv.input
 let typeofInput = null
 
 try {
-  //
   let result = {
     is: undefined
   }
   
-  let globs = glob.sync(argv.input)
+  let globs = glob.sync(argvInput)
   
   if(globs.length){
     let inputStat = fs.statSync(globs[0])
@@ -79,7 +79,7 @@ try {
 }
 
 if(!typeofInput) {
-  console.error(`Input is invalid (not found) :: ${argv.input}`)
+  console.error(`Input is invalid (not found) :: ${argvInput}`)
   process.exit(1)
 } else {
   argv['typeofInput'] = typeofInput
