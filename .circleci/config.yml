@@ -179,6 +179,9 @@ workflows:
       - pack-iife-name:
           requires:
             - build
+      - pack-multiple:
+          requires:
+            - build
       - result:
           requires:
             - compile-umd
