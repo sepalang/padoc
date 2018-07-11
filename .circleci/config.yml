@@ -126,6 +126,18 @@ jobs:
           name: Result tree
           command: tree sample
 
+  pack-multiple:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: COMPILE
+          command: npm run test:packs
+      - run:
+          name: Result tree
+          command: tree sample
+
   result:
     <<: *defaults
     steps:
@@ -177,3 +189,4 @@ workflows:
             - pack-amd
             - pack-iife
             - pack-iife-name
+            - pack-multiple
