@@ -1,6 +1,6 @@
 {
   "name": "@sepalang/padoc",
-  "version": "0.8.03",
+  "version": "0.8.4",
   "description": "ASAP compile the ECMAScript",
   "repository": {
     "type": "git",
