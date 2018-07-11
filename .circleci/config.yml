@@ -28,7 +28,7 @@ jobs:
           command: npm run test:compile -s
       - run:
           name: Result tree
-          command: tree sample
+          command: tree test/run-script
 
   compile-umd:
     <<: *defaults
@@ -40,7 +40,7 @@ jobs:
           command: npm run test:compile -- -m umd -s
       - run:
           name: Result tree
-          command: tree sample
+          command: tree test/run-script
 
   compile-cjs:
     <<: *defaults
@@ -52,7 +52,7 @@ jobs:
           command: npm run test:compile -- -m cjs -s
       - run:
           name: Result tree
-          command: tree sample
+          command: tree test/run-script
 
   compile-amd:
     <<: *defaults
@@ -64,7 +64,7 @@ jobs:
           command: npm run test:compile -- -m amd -s
       - run:
           name: Result tree
-          command: tree sample
+          command: tree test/run-script
 
   pack-umd:
     <<: *defaults
@@ -76,7 +76,7 @@ jobs:
           command: npm run test:pack -- -m umd -s
       - run:
           name: Result tree
-          command: tree sample
+          command: tree test/run-script
 
   pack-cjs:
     <<: *defaults
@@ -88,7 +88,7 @@ jobs:
           command: npm run test:pack -- -m cjs -s
       - run:
           name: Result tree
-          command: tree sample
+          command: tree test/run-script
 
   pack-amd:
     <<: *defaults
@@ -100,7 +100,7 @@ jobs:
           command: npm run test:pack -- -m amd -s
       - run:
           name: Result tree
-          command: tree sample
+          command: tree test/run-script
 
   pack-iife:
     <<: *defaults
@@ -112,7 +112,7 @@ jobs:
           command: npm run test:pack -- -m iife -s
       - run:
           name: Result tree
-          command: tree sample
+          command: tree test/run-script
 
   pack-iife-name:
     <<: *defaults
@@ -124,7 +124,7 @@ jobs:
           command: npm run test:pack -- -m iife -n packs -s
       - run:
           name: Result tree
-          command: tree sample
+          command: tree test/run-script
 
   pack-multiple:
     <<: *defaults
@@ -136,7 +136,7 @@ jobs:
           command: npm run test:packs
       - run:
           name: Result tree
-          command: tree sample
+          command: tree test/chunk
 
   result:
     <<: *defaults
