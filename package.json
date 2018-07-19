@@ -1,6 +1,6 @@
 {
   "name": "@sepalang/padoc",
-  "version": "0.8.10",
+  "version": "0.8.11",
   "description": "ASAP compile the ECMAScript",
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     "test:packs:glob": "my padoc --pack 'test/chunk/src/main-*.js' test/chunk/dist -m es",
     "test:exec": "my padoc --exec test/run-script/src/read.js",
     "test:exec:i": "my padoc --exec test/run-script/src/read.js -i",
+    "test:exec:ig": "my padoc --exec test/run-script/src/read.js -i -g",
     "test:test": "my padoc --test test/run-script/src",
     "test:test2": "my padoc --test test/run-script/src --verbose"
   },

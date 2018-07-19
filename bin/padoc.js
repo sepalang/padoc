@@ -12,8 +12,7 @@ const argv = {
   name      : 'module',
   input     : null,
   output    : null,
-  sourcemaps: false,
-  interactive: false
+  sourcemaps: false
 }
 
 // setting : input output signal
@@ -47,7 +46,6 @@ if(!argv.output){
 argv.module = argvProps['m'] || argvProps['module'] || argv.module
 argv.name = argvProps['n'] || argvProps['name'] || argv.name
 argv.sourcemaps = argvProps['s'] || argvProps['sourcemaps'] || argv.sourcemaps
-argv.interactive = argvProps['i'] || argvProps['interactive'] || argv.interactive
 
 // detect glob pattern
 if(argv.input instanceof Array){
@@ -121,6 +119,9 @@ case 'pack':
   })
   break
 case 'exec':
+  argv.interactive = argvProps['i'] || argvProps['interactive'] || false
+  argv.global = argvProps['g'] || argvProps['global'] || false
+  
   esExecute(argv)
   .catch(e=>{
     console.log(`Padoc --exec fail!`,e)
