@@ -1,6 +1,6 @@
 {
   "name": "@sepalang/padoc",
-  "version": "0.8.11",
+  "version": "0.8.12",
   "description": "ASAP compile the ECMAScript",
   "repository": {
     "type": "git",
@@ -23,6 +23,9 @@
     "test:exec": "my padoc --exec test/run-script/src/read.js",
     "test:exec:i": "my padoc --exec test/run-script/src/read.js -i",
     "test:exec:ig": "my padoc --exec test/run-script/src/read.js -i -g",
+    "test:ignore": "my padoc --test test/ignore --verbose",
+    "test:ignore:compile": "my padoc test/ignore/src test/ignore/dist",
+    "test:ignore:pack": "my padoc --pack 'test/ignore/src/*.js' test/ignore/dist -m es",
     "test:test": "my padoc --test test/run-script/src",
     "test:test2": "my padoc --test test/run-script/src --verbose"
   },

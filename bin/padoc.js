@@ -55,8 +55,14 @@ if(argv.input instanceof Array){
     if(path.indexOf("*") === -1){
       return globedInput.push(path)
     }
-    glob.sync(path).forEach(globPath=>globedInput.push(globPath))
+    console.log('glogsync',path)
+    glob.sync(path).forEach(globPath=>{
+      console.log('globPath',globPath)
+      //ignore spec.js, test.js
+      !/(\.spec\.js|\.test\.js)/.test(globPath) && globedInput.push(globPath)
+    })
   })
+  console.log("globedInput",globedInput)
   
   argv.input = globedInput
 }
