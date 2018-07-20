@@ -3,3 +3,4 @@
 .nvmrc
 .tm_properties
 .circleci
+test/**/dist
