@@ -76,7 +76,11 @@ spec.js 나 test.js로 파일 이름이 끝나는 파일을 jest를 이용하여
 ```
 my padoc --test sample/src
 
-#verbose
+# test name pattern
+my padoc --test sample/src --pattern testname
+my padoc --test sample/src -p testname
+
+# verbose
 my padoc --test sample/src --verbose
 ```
 
