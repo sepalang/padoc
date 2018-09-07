@@ -1,5 +1,6 @@
 [![CircleCI](https://circleci.com/gh/sepalang/padoc/tree/master.svg?style=shield)](https://circleci.com/gh/sepalang/padoc/tree/master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d09a4868f68041fb8a1647f740e535f3)](https://www.codacy.com/app/labeldock/padoc?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sepalang/padoc&amp;utm_campaign=Badge_Grade) [![Greenkeeper badge](https://badges.greenkeeper.io/sepalang/padoc.svg)](https://greenkeeper.io/)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d09a4868f68041fb8a1647f740e535f3)](https://www.codacy.com/app/labeldock/padoc?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sepalang/padoc&amp;utm_campaign=Badge_Grade)
+[![Greenkeeper badge](https://badges.greenkeeper.io/sepalang/padoc.svg)](https://greenkeeper.io/)
 
 # PADOC
 It is a tool for extracting compilation and distribution source with a simple command library written in es6.
@@ -70,20 +71,6 @@ padoc --exec index.js -i
 # long
 padoc --exec index.js --interactive
 ```
-
-### Test
-spec.js 나 test.js로 파일 이름이 끝나는 파일을 jest를 이용하여 테스트합니다.
-```
-my padoc --test sample/src
-
-# test name pattern
-my padoc --test sample/src --pattern testname
-my padoc --test sample/src -p testname
-
-# verbose
-my padoc --test sample/src --verbose
-```
-
 
 ## Default plugins
 ### Object rest spread

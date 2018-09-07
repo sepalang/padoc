@@ -3,9 +3,8 @@ const fs   = require('fs')
 const glob = require('glob')
 const { esCompile, packCompile } = require('../lib/compileUtil')
 const { esExecute, esTest } = require('../lib/execUtil')
-const myself = require('@sepalang/myself')
+const { args:argvProps } = require('@sepalang/myself')
 
-const argvProps = myself.args
 const argv = {
   signal    : null,
   module    : 'umd',
@@ -14,6 +13,12 @@ const argv = {
   output    : null,
   sourcemaps: false,
   pattern   : undefined
+}
+
+// alert removed padoc --test
+if(argvProps['test']){
+  console.log("padoc --test is removed. please use @sepalang/testpad cli Use the 'testpad' command")
+  process.exit(1)
 }
 
 // setting : input output signal
@@ -26,9 +31,6 @@ if(argvProps['pack']){
   //exec
   argv.input  = argvProps['exec']
   argv.signal = "exec"
-} else if(argvProps['test']) {
-  argv.input  = argvProps['test']
-  argv.signal = "test"
 } else {
   //compile mode
   argv.input  = argvProps['_'][0]
@@ -133,12 +135,4 @@ case 'exec':
     process.exit(1)
   })
   break
-case 'test':
-  argv.verbose = !!argvProps.verbose;
-  
-  esTest(argv)
-  .catch(e=>{
-    console.log(`Padoc --test fail!`,e)
-    process.exit(1)
-  })
 }
