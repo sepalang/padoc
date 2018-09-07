@@ -9,7 +9,11 @@ const getContentOfPadocBabelConfig = function(){
   return fs.readFileSync(getPathOfPadocBabelConfig(),'utf-8');
 }
 
+const getPadocBabelConfig = function(){
+  return JSON.parse(getContentOfPadocBabelConfig());
+};
+
 module.exports = {
   getPathOfPadocBabelConfig,
-  getContentOfPadocBabelConfig
+  getPadocBabelConfig
 };
