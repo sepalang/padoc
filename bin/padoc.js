@@ -11,7 +11,8 @@ const argv = {
   name      : 'module',
   input     : null,
   output    : null,
-  sourcemaps: false
+  sourcemaps: false,
+  pattern   : undefined
 }
 
 // alert removed padoc --test
@@ -48,6 +49,7 @@ if(!argv.output){
 argv.module = argvProps['m'] || argvProps['module'] || argv.module
 argv.name = argvProps['n'] || argvProps['name'] || argv.name
 argv.sourcemaps = argvProps['s'] || argvProps['sourcemaps'] || argv.sourcemaps
+argv.pattern = argvProps['p'] || argvProps['pattern'] || argvProps['testNamePattern'] || argv.pattern
 
 // detect glob pattern
 if(argv.input instanceof Array){
