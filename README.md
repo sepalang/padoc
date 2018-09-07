@@ -71,16 +71,6 @@ padoc --exec index.js -i
 padoc --exec index.js --interactive
 ```
 
-### Test
-spec.js 나 test.js로 파일 이름이 끝나는 파일을 jest를 이용하여 테스트합니다.
-```
-my padoc --test sample/src
-
-#verbose
-my padoc --test sample/src --verbose
-```
-
-
 ## Default plugins
 ### Object rest spread
 [link](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-object-rest-spread)
