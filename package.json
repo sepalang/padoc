@@ -45,7 +45,7 @@
     "@babel/plugin-syntax-async-generators": "^7.0.0",
     "@babel/plugin-transform-modules-amd": "^7.0.0",
     "@babel/plugin-transform-modules-commonjs": "^7.0.0",
-    "@babel/plugin-transform-modules-umd": "^7.0.0-rc.2",
+    "@babel/plugin-transform-modules-umd": "^7.0.0",
     "@babel/polyfill": "^7.0.0-rc.2",
     "@babel/preset-env": "^7.0.0-rc.2",
     "@sepalang/myself": "^0.3.0",
