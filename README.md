@@ -1,3 +1,4 @@
+[![npm version](https://badge.fury.io/js/%40sepalang%2Fpadoc.svg)](https://badge.fury.io/js/%40sepalang%2Fpadoc)
 [![CircleCI](https://circleci.com/gh/sepalang/padoc/tree/master.svg?style=shield)](https://circleci.com/gh/sepalang/padoc/tree/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d09a4868f68041fb8a1647f740e535f3)](https://www.codacy.com/app/labeldock/padoc?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sepalang/padoc&amp;utm_campaign=Badge_Grade)
 [![Greenkeeper badge](https://badges.greenkeeper.io/sepalang/padoc.svg)](https://greenkeeper.io/)
