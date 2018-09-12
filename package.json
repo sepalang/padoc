@@ -39,7 +39,7 @@
     "@babel/node": "^7.0.0",
     "@babel/plugin-external-helpers": "^7.0.0",
     "@babel/plugin-proposal-async-generator-functions": "^7.0.0",
-    "@babel/plugin-proposal-do-expressions": "^7.0.0-rc.2",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
     "@babel/plugin-proposal-numeric-separator": "^7.0.0-rc.2",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-rc.2",
     "@babel/plugin-syntax-async-generators": "^7.0.0-rc.2",
