@@ -49,7 +49,7 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@sepalang/myself": "^0.3.0",
-    "@sepalang/runner": "^0.8.0",
+    "@sepalang/runner": "^0.9.0",
     "glob": "^7.1.3",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.2",
