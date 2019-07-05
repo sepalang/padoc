@@ -1,0 +1,1 @@
+export numeric from './numeric-separator';
