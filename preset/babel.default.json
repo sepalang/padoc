@@ -9,8 +9,7 @@
             "safari >= 7"
           ]
         },
-        "loose": true,
-        "useBuiltIns": "usage"
+        "loose": true
       }
     ]
   ],
