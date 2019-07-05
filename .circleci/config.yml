@@ -209,6 +209,9 @@ workflows:
       - pack-multiple-glob:
           requires:
             - build
+      - test-feature:
+          requires:
+            - build
       - result:
           requires:
             - compile-umd
