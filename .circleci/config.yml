@@ -150,6 +150,18 @@ jobs:
           name: Result tree
           command: tree test/chunk
 
+  test-feature:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: COMPILE
+          command: npm run test:feature
+      - run:
+          name: Result tree
+          command: tree test/feature
+
   result:
     <<: *defaults
     steps:
@@ -209,3 +221,4 @@ workflows:
             - pack-iife-name
             - pack-multiple
             - pack-multiple-glob
+            - test-feature
